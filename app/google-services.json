@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1030216961688",
+    "project_id": "recam-fceda",
+    "storage_bucket": "recam-fceda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1030216961688:android:ba06c856eaaa9d075dcaed",
+        "android_client_info": {
+          "package_name": "com.dolly.re_cam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1030216961688-l195m3tfqr1f92sd5jsrhud6ek43ep74.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dolly.re_cam",
+            "certificate_hash": "21030448ee4a798c035be0c7431df1a0d4668205"
+          }
+        },
+        {
+          "client_id": "1030216961688-uesm0qfubd7khoolem4c0colnfen1t2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyQ_jJixWLsqjxU3WYf-5Fe79mV9X6sAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1030216961688-uesm0qfubd7khoolem4c0colnfen1t2s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
