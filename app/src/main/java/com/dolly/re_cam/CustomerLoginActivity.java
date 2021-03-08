@@ -3,11 +3,12 @@ package com.dolly.re_cam;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -16,11 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import android.view.View;
-import android.widget.Toast;
 
-public class CammyLoginActivity extends AppCompatActivity {
-
+public class CustomerLoginActivity extends AppCompatActivity {
 
     private FirebaseAuth authentication;
     private FirebaseAuth.AuthStateListener AuthListener;
@@ -32,7 +30,7 @@ public class CammyLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cammy_login);
+        setContentView(R.layout.activity_customer_login);
 
         authentication = FirebaseAuth.getInstance(); // get current login state
 
@@ -40,11 +38,11 @@ public class CammyLoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
 
-                FirebaseUser  user = FirebaseAuth.getInstance().getCurrentUser();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user!=null){
 
-                    Intent intent = new Intent(CammyLoginActivity.this, MapActivity.class);
+                    Intent intent = new Intent(CustomerLoginActivity.this, MapActivity.class);
                     startActivity(intent);
                     finish();
                     return;
@@ -65,16 +63,16 @@ public class CammyLoginActivity extends AppCompatActivity {
                 final String strEmail    = Email.getText().toString();
                 final String strPassword = Password.getText().toString();
 
-                authentication.createUserWithEmailAndPassword(strEmail,strPassword).addOnCompleteListener(CammyLoginActivity.this, new OnCompleteListener<AuthResult>() {
+                authentication.createUserWithEmailAndPassword(strEmail,strPassword).addOnCompleteListener(CustomerLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (!task.isSuccessful()){
-                            Toast.makeText(CammyLoginActivity.this, "Sign in error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerLoginActivity.this, "Sign in error",Toast.LENGTH_SHORT).show();
                         }
                         else{
                             String user_id = authentication.getCurrentUser().getUid();
-                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Camera_Operator").child(user_id);
+                            DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Users").child("Customer").child(user_id);
                             current_user_db.setValue(true);
 
                         }
@@ -89,12 +87,12 @@ public class CammyLoginActivity extends AppCompatActivity {
                 final String strEmail    = Email.getText().toString();
                 final String strPassword = Password.getText().toString();
 
-                authentication.signInWithEmailAndPassword(strEmail,strPassword).addOnCompleteListener(CammyLoginActivity.this, new OnCompleteListener<AuthResult>() {
+                authentication.signInWithEmailAndPassword(strEmail,strPassword).addOnCompleteListener(CustomerLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (!task.isSuccessful()){
-                            Toast.makeText(CammyLoginActivity.this, "Sign in error",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerLoginActivity.this, "Sign in error",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -116,4 +114,3 @@ public class CammyLoginActivity extends AppCompatActivity {
         authentication.removeAuthStateListener(AuthListener);
     }
 }
-
