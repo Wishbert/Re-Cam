@@ -1,0 +1,26 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=C4:D1:F0:18:38:4D:01:75:91:7B:C2:1B:C1:16:ED:2E:57:3C:49:35%3Bcom.dolly.re_cam
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.dolly.re_cam
+
+    SHA-1 certificate fingerprint:
+    C4:D1:F0:18:38:4D:01:75:91:7B:C2:1B:C1:16:ED:2E:57:3C:49:35
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        AIzaSyAE_tjs9R_praUFYnS7mF8bH-GWtTQNuJc
+    </string>
+</resources>

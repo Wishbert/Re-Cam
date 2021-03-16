@@ -44,7 +44,7 @@ public class CammyLoginActivity extends AppCompatActivity {
 
                 if (user!=null){
 
-                    Intent intent = new Intent(CammyLoginActivity.this, MapActivity.class);
+                    Intent intent = new Intent(CammyLoginActivity.this, CammyMapsActivity.class);
                     startActivity(intent);
                     finish();
                     return;
